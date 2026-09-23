@@ -3,142 +3,162 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>План октября 2026 — WB</title>
+<title>План октября → ноября 2026</title>
 <style>
 :root {
-  --bg:#0f1419; --surface:#1a2332; --surface2:#243044; --text:#e8edf4;
-  --muted:#8b9cb3; --accent:#5b8def; --green:#3dd68c; --yellow:#f5c542;
-  --red:#f56565; --orange:#ed8936; --border:#2d3a4f; --input:#1e3a2f;
-  --formula:#1b2433; --dirty:#3a3218;
+  --bg:#f3efe6; --ink:#1a1814; --mute:#7a7368; --line:#d8d2c4;
+  --paper:#fffdf8; --edit:#fff; --we:#f0ebe1;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
-.wrap{max-width:1480px;margin:0 auto;padding:18px 14px 64px}
-header{margin-bottom:16px}
-header h1{font-size:1.45rem;font-weight:700}
-.sub{color:var(--muted);font-size:.88rem;margin-top:4px}
-.formulas{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 14px;margin:12px 0 16px;font-size:.8rem;color:var(--muted);line-height:1.55}
-.formulas b{color:var(--text);font-weight:600}
-.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:14px}
-.kpi-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 14px}
-.kpi-card .label{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
-.kpi-card .value{font-size:1.45rem;font-weight:700;margin-top:2px;font-variant-numeric:tabular-nums}
-.kpi-card .hint{font-size:.75rem;color:var(--muted);margin-top:2px}
-.kpi-card.warn{border-color:var(--orange)}
-.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
-.toolbar input,.toolbar select,.toolbar button{
-  background:var(--surface2);border:1px solid var(--border);color:var(--text);
-  padding:7px 10px;border-radius:8px;font-size:.85rem}
-.toolbar button{cursor:pointer}
-.toolbar button:hover{border-color:var(--accent)}
-.toolbar .search{min-width:220px;flex:1}
-.legend{font-size:.75rem;color:var(--muted)}
-.sw{display:inline-block;width:10px;height:10px;border-radius:2px;vertical-align:middle;margin:0 3px 0 8px}
-.sw.edit{background:#2d6a4f}
-.sw.calc{background:#2d3a4f}
-.scroll{overflow:auto;max-height:72vh;border:1px solid var(--border);border-radius:10px}
-table{width:100%;border-collapse:collapse;font-size:12px;background:var(--surface)}
-th{position:sticky;top:0;z-index:2;background:#15202e;color:var(--muted);font-weight:600;padding:8px 6px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--border);cursor:pointer}
-th.left,td.left{text-align:left}
-th .f{display:block;font-size:10px;font-weight:400;color:#6b7c91;text-transform:none}
-td{padding:3px 4px;border-bottom:1px solid #243044;text-align:right;font-variant-numeric:tabular-nums;vertical-align:middle}
-tr:hover td{background:#1e2a3c}
-tr.neg td.op{color:var(--red)}
-tr.oos td{background:#2a1a1a}
-tr.hole td{background:#2a2410}
-tfoot td{position:sticky;bottom:0;background:#15202e;font-weight:700;border-top:1px solid var(--border);padding:8px 6px}
-input.cell,select.cell{
-  width:100%;min-width:52px;background:var(--input);border:1px solid #2f6b4f;color:#d8ffe8;
-  padding:4px 5px;border-radius:4px;text-align:right;font:inherit}
-input.cell.name,select.cell.flag{text-align:left;min-width:90px}
-input.cell:focus,select.cell:focus{outline:none;border-color:var(--yellow);background:#244433}
-input.cell.dirty{background:var(--dirty);border-color:var(--yellow);color:#ffe8a3}
-.calc{color:#c5d4e8;padding:4px 6px;display:block}
-.calc.neg{color:var(--red)}
-.pill{display:inline-block;padding:1px 7px;border-radius:6px;font-size:10px;font-weight:600}
-.p-масштаб{background:#1a3a2a;color:var(--green)}
-.p-вернуть{background:#3a3010;color:var(--yellow)}
-.p-держать{background:#243044;color:var(--muted)}
-.p-слив{background:#4a1c1c;color:var(--red)}
-.del{background:transparent;border:0;color:var(--muted);cursor:pointer;padding:2px 6px}
-.del:hover{color:var(--red)}
-.nm{font-size:10px;color:var(--muted)}
-footer{margin-top:16px;color:var(--muted);font-size:.78rem;text-align:center}
+* { box-sizing:border-box; margin:0; padding:0 }
+body {
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  background: var(--bg); color: var(--ink); line-height:1.4;
+}
+.wrap { max-width:1320px; margin:0 auto; padding:28px 22px 72px }
+.kicker { font-family: ui-sans-serif, system-ui, sans-serif; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--mute) }
+h1 { font-size:28px; font-weight:500; margin:6px 0 4px }
+.lead { color:var(--mute); font-size:15px; max-width:46em }
+.eq {
+  display:grid; grid-template-columns:1fr auto 1fr auto 1fr; gap:12px; align-items:end;
+  margin:28px 0 10px; padding:22px 0; border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+}
+.eq .box .lbl { font-family: ui-sans-serif, system-ui, sans-serif; font-size:11px; color:var(--mute); text-transform:uppercase; letter-spacing:.08em }
+.eq .box .num { font-size:40px; font-weight:500; letter-spacing:-.03em; font-variant-numeric:tabular-nums }
+.eq .box input {
+  font: inherit; font-size:40px; font-weight:500; letter-spacing:-.03em;
+  width:100%; background:transparent; border:0; border-bottom:1px dashed var(--line);
+  color:var(--ink); text-align:left; padding:0 0 2px;
+}
+.eq .box input:focus { outline:none; border-bottom-color:var(--ink) }
+.eq .sign { font-size:28px; color:var(--mute); padding-bottom:8px }
+.eq .hint { font-family: ui-sans-serif, system-ui, sans-serif; font-size:12px; color:var(--mute); margin-top:4px }
+.gap { font-family: ui-sans-serif, system-ui, sans-serif; font-size:13px; color:var(--mute); margin-bottom:22px }
+.gap b { color:var(--ink); font-weight:600 }
+.meta {
+  display:grid; grid-template-columns:repeat(6,1fr); gap:14px;
+  font-family: ui-sans-serif, system-ui, sans-serif; font-size:13px; margin-bottom:26px;
+}
+.meta span { display:block; color:var(--mute); font-size:11px; text-transform:uppercase; letter-spacing:.08em }
+.meta b { font-weight:600; font-variant-numeric:tabular-nums }
+.cal-head { font-family: ui-sans-serif, system-ui, sans-serif; font-size:11px; color:var(--mute); text-transform:uppercase; letter-spacing:.1em; margin-bottom:8px }
+.cal { display:grid; grid-template-columns:repeat(31,1fr); gap:2px; margin-bottom:8px }
+.cal .c { text-align:center; padding:6px 0 7px; background:var(--paper); border:1px solid var(--line); font-family: ui-sans-serif, system-ui, sans-serif }
+.cal .c.we { background:var(--we) }
+.cal .c .wd { font-size:9px; color:var(--mute); text-transform:uppercase }
+.cal .c .dd { font-size:11px; font-weight:600 }
+.cal .c .q { font-size:11px; font-variant-numeric:tabular-nums; margin-top:2px }
+.note { font-family: ui-sans-serif, system-ui, sans-serif; font-size:12px; color:var(--mute); margin:0 0 20px }
+.toolbar { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:10px; font-family: ui-sans-serif, system-ui, sans-serif }
+.toolbar input, .toolbar select, .toolbar button {
+  background:var(--paper); border:1px solid var(--line); color:var(--ink);
+  padding:7px 10px; font-size:13px;
+}
+.toolbar .search { min-width:220px; flex:1 }
+.toolbar button { cursor:pointer }
+.toolbar button:hover, .toolbar button.on { border-color:var(--ink) }
+.scroll { overflow:auto; border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); background:var(--paper) }
+table { width:100%; border-collapse:collapse; font-family: ui-sans-serif, system-ui, sans-serif; font-size:12.5px }
+th { position:sticky; top:0; background:var(--bg); text-align:right; font-weight:500; color:var(--mute); padding:8px 6px; border-bottom:1px solid var(--line); white-space:nowrap; cursor:pointer }
+th.l, td.l { text-align:left }
+td { padding:5px 6px; border-bottom:1px solid var(--line); text-align:right; font-variant-numeric:tabular-nums; vertical-align:middle }
+tr:hover td { background:#faf6ee }
+tr.open td { background:#f4eee3 }
+.nm { color:var(--mute); font-size:10px }
+.f { color:var(--mute); font-size:11px }
+.neg { color:#8a2a2a }
+input.cell {
+  width:100%; min-width:48px; background:var(--edit); border:1px solid var(--line);
+  color:var(--ink); padding:3px 5px; text-align:right; font:inherit;
+}
+input.cell.name { text-align:left; min-width:120px }
+input.cell:focus { outline:none; border-color:var(--ink) }
+.readonly { color:var(--ink) }
+.days-row td { background:#f7f3ea; padding:6px }
+.days-grid { display:grid; grid-template-columns:repeat(31, minmax(34px,1fr)); gap:3px }
+.days-grid label { display:block; font-size:9px; color:var(--mute); text-align:center }
+.days-grid input { width:100%; font-size:11px }
+tfoot td { position:sticky; bottom:0; background:var(--bg); font-weight:600; border-top:1px solid var(--ink); padding:8px 6px }
+footer { margin-top:22px; font-family: ui-sans-serif, system-ui, sans-serif; font-size:12px; color:var(--mute); max-width:52em }
+.del { background:none; border:0; color:var(--mute); cursor:pointer; padding:0 4px }
+.del:hover { color:var(--ink) }
+@media (max-width:800px) {
+  .eq { grid-template-columns:1fr; gap:16px }
+  .eq .sign { display:none }
+  .meta { grid-template-columns:repeat(2,1fr) }
+  .eq .box .num, .eq .box input { font-size:32px }
+}
 </style>
 </head>
 <body>
 <div class="wrap">
-<header>
-  <h1>План октября 2026 — WB</h1>
-  <p class="sub">Жёлто-зелёные ячейки можно менять. Серые считаются сами. Правки остаются в этом браузере.</p>
-</header>
+  <div class="kicker">Wildberries · поартикульно · по дням</div>
+  <h1>План октября → ноября</h1>
+  <p class="lead">Цель месяца: маржа 55 000 минус расход 25 000 = чистая прибыль 30 000. Заказы растут к 1 ноября. Жёлтые поля можно менять — остальное считается.</p>
 
-<div class="formulas">
-  <b>Формулы:</b>
-  шт/мес = шт/день × 31 ·
-  выполнимо = МИН(шт/мес; сток) ·
-  прибыль/шт = Pдо × маржа ·
-  прибыль/день = шт/день × прибыль/шт ·
-  прибыль/мес = выполнимо × прибыль/шт ·
-  Pдо/мес = выполнимо × Pдо ·
-  дней = сток / шт/день ·
-  довезти = МАКС(0; шт/мес − сток) ·
-  маржа портфеля = прибыль / Pдо
-</div>
+  <div class="eq">
+    <div class="box">
+      <div class="lbl">маржа, план</div>
+      <div class="num" id="v-op">—</div>
+      <div class="hint" id="h-op"></div>
+    </div>
+    <div class="sign">−</div>
+    <div class="box">
+      <div class="lbl">расход</div>
+      <input id="opex" type="text" inputmode="decimal" onchange="setOpex(this.value)">
+      <div class="hint">правишь, если 25 тыс. изменятся</div>
+    </div>
+    <div class="sign">=</div>
+    <div class="box">
+      <div class="lbl">чистая прибыль</div>
+      <div class="num" id="v-net">—</div>
+      <div class="hint" id="h-net"></div>
+    </div>
+  </div>
+  <p class="gap" id="gap"></p>
 
-<div class="kpi" id="kpi"></div>
+  <div class="meta" id="meta"></div>
 
-<div class="toolbar">
-  <input class="search" id="q" placeholder="поиск артикула или nm" oninput="render()">
-  <select id="flag" onchange="render()">
-    <option value="все">все</option>
-    <option value="масштаб">масштаб</option>
-    <option value="вернуть">вернуть</option>
-    <option value="держать">держать</option>
-    <option value="слив">слив</option>
-    <option value="дыра">дыра стока</option>
-  </select>
-  <label class="legend">сезон × <input id="k" type="number" step="0.05" value="1" min="0.5" max="2" style="width:70px" oninput="render()"></label>
-  <button type="button" onclick="addRow()">+ строка</button>
-  <button type="button" onclick="resetAll()">сбросить</button>
-  <button type="button" onclick="exportCsv()">скачать CSV</button>
-  <span class="legend"><span class="sw edit"></span>правишь<span class="sw calc"></span>формула</span>
-</div>
+  <div class="cal-head">Октябрь, шт / день по всему портфелю</div>
+  <div class="cal" id="cal"></div>
+  <p class="note">Форма дня = линейный рост от «1 окт» к «31 окт» × вес дня недели из сентября. Слив с отрицательной маржой в план не ставили.</p>
 
-<div class="scroll">
-<table>
-<thead>
-<tr>
-  <th class="left">флаг</th>
-  <th class="left">артикул</th>
-  <th>шт/день</th>
-  <th>шт/мес<span class="f">=день×31</span></th>
-  <th>Pдо</th>
-  <th>маржа %</th>
-  <th>прибыль/шт<span class="f">=Pдо×маржа</span></th>
-  <th>прибыль/день<span class="f">=день×шт</span></th>
-  <th>прибыль/мес<span class="f">=выполн×шт</span></th>
-  <th>Pдо/мес<span class="f">=выполн×Pдо</span></th>
-  <th>сток</th>
-  <th>дней<span class="f">=сток/день</span></th>
-  <th>довезу<span class="f">=мес−сток</span></th>
-  <th>окт25/д</th>
-  <th>июнь/д</th>
-  <th></th>
-</tr>
-</thead>
-<tbody id="tb"></tbody>
-<tfoot id="tf"></tfoot>
-</table>
-</div>
-<footer>База: нетто-заказы 02–22.09 / 21. Маржа RASK от Pдо. Сезон сверху — если хочешь прогнать «если полетит».</footer>
+  <div class="toolbar">
+    <input class="search" id="q" placeholder="артикул или nm" oninput="render()">
+    <select id="flag" onchange="render()">
+      <option value="все">все артикулы</option>
+      <option value="масштаб">масштаб</option>
+      <option value="вернуть">вернуть</option>
+      <option value="держать">держать</option>
+      <option value="слив">слив</option>
+      <option value="дыра">нужен довоз</option>
+      <option value="план">только с планом</option>
+    </select>
+    <button type="button" id="btn-days" onclick="toggleDays()">показать дни</button>
+    <button type="button" onclick="addRow()">добавить</button>
+    <button type="button" onclick="resetAll()">сбросить</button>
+    <button type="button" onclick="exportCsv()">CSV</button>
+  </div>
+
+  <div class="scroll">
+    <table>
+      <thead id="th"></thead>
+      <tbody id="tb"></tbody>
+      <tfoot id="tf"></tfoot>
+    </table>
+  </div>
+  <footer>
+    База темпа — нетто-заказы 2–22 сентября. Маржа RASK от цены до СПП. 55 тыс. — это примерно двойной текущий темп, около июня. Со складом сейчас столько не закрывается: смотри колонку «довезу». Правки остаются в этом браузере.
+  </footer>
 </div>
 <script>
-const SOURCE = {"as_of":"2026-09-23","days":31,"skus":[{"nm":1244939198,"n":"NPSC45663 ягненок 1,5кг","f":"масштаб","d":3.48,"pdo":112.0,"m":0.175,"st":73,"o25":0.0,"jun":0.0},{"nm":897956796,"n":"RAT & MOUSE COMPLETE  2кг","f":"масштаб","d":2.57,"pdo":114.0,"m":0.138,"st":395,"o25":0.0,"jun":3.17},{"nm":1245028251,"n":"NPSC45829 рыба щенки 1,5кг","f":"масштаб","d":1.1,"pdo":121.0,"m":0.262,"st":38,"o25":0.0,"jun":0.0},{"nm":838593982,"n":"Интегра с курицей для кошек диаб","f":"вернуть","d":1.29,"pdo":160.0,"m":0.163,"st":149,"o25":0.0,"jun":6.07},{"nm":1478820148,"n":"CHINCHILLA & DEGU 3х500","f":"масштаб","d":2.86,"pdo":98.0,"m":0.105,"st":227,"o25":0.0,"jun":0.0},{"nm":772818535,"n":"8in1 Exsel Glucosamine 110Tb","f":"масштаб","d":1.71,"pdo":115.0,"m":0.145,"st":80,"o25":0.0,"jun":2.7},{"nm":772834184,"n":"8in1 Excel Brewer's Yeast l.b. 80TB","f":"масштаб","d":2.19,"pdo":53.0,"m":0.233,"st":78,"o25":0.0,"jun":7.17},{"nm":755026289,"n":"8in1 Excel Multi Vit-Puppy 100TB","f":"масштаб","d":1.9,"pdo":54.0,"m":0.245,"st":100,"o25":0.0,"jun":8.47},{"nm":624907280,"n":"8in1 Excel Glucosamine 55TB","f":"вернуть","d":2.29,"pdo":72.0,"m":0.155,"st":69,"o25":0.0,"jun":5.37},{"nm":587971981,"n":"8in1 Excel Multi Vit. Senior 70TB","f":"масштаб","d":2.67,"pdo":54.0,"m":0.159,"st":89,"o25":0.0,"jun":6.5},{"nm":893436136,"n":"8in1 Exsel Calcium 155Tb","f":"вернуть","d":1.24,"pdo":54.0,"m":0.337,"st":97,"o25":0.0,"jun":1.53},{"nm":1155812165,"n":"Vom Feinsten кролик/индейка 100гх16","f":"вернуть","d":1.38,"pdo":101.0,"m":0.156,"st":55,"o25":0.0,"jun":0.0},{"nm":536822091,"n":"Multi VitaminSmallBreed 70 шт","f":"масштаб","d":4.1,"pdo":54.0,"m":0.162,"st":69,"o25":1.74,"jun":8.37},{"nm":1156156553,"n":"Carny говядина 400гх6","f":"масштаб","d":0.86,"pdo":111.0,"m":0.201,"st":108,"o25":0.0,"jun":0.0},{"nm":996324210,"n":"Интегра с индейкой 85 г","f":"вернуть","d":0.67,"pdo":162.0,"m":0.173,"st":179,"o25":0.0,"jun":3.5},{"nm":755019816,"n":"8in1 Excel Multi Vit-Adult 70TB","f":"масштаб","d":2.14,"pdo":53.0,"m":0.155,"st":83,"o25":0.0,"jun":4.17},{"nm":1335515644,"n":"8in1 Excel Brewer's Yeast 140 шт","f":"держать","d":2.0,"pdo":41.0,"m":0.227,"st":56,"o25":0.0,"jun":0.0},{"nm":1417062214,"n":"NPSC45664 ягненок 10кг","f":"масштаб","d":0.1,"pdo":645.0,"m":0.223,"st":5,"o25":0.0,"jun":0.0},{"nm":310367301,"n":"IAF/010/012/(475/529)","f":"держать","d":0.24,"pdo":305.0,"m":0.182,"st":53,"o25":0.13,"jun":0.03},{"nm":309931114,"n":"MIDA210/388","f":"держать","d":1.0,"pdo":134.0,"m":0.091,"st":48,"o25":0.26,"jun":1.97},{"nm":1253375082,"n":"Vom Feinsten птица/говядина/свинина 100гх16","f":"вернуть","d":1.29,"pdo":100.0,"m":0.146,"st":25,"o25":0.0,"jun":0.0},{"nm":1417224329,"n":"NPSC45669 лосось 1,5кг щенки","f":"масштаб","d":0.33,"pdo":116.0,"m":0.304,"st":11,"o25":0.0,"jun":0.0},{"nm":1335515643,"n":"8in1 Excel Deter","f":"масштаб","d":2.24,"pdo":54.0,"m":0.362,"st":18,"o25":0.0,"jun":0.0},{"nm":309753741,"n":"MIRE061/802","f":"держать","d":0.38,"pdo":113.0,"m":0.219,"st":54,"o25":0.81,"jun":0.5},{"nm":446389957,"n":"Меркурий 201.7","f":"держать","d":0.95,"pdo":93.0,"m":0.102,"st":30,"o25":16.87,"jun":8.87},{"nm":309671205,"n":"IDU009/444","f":"держать","d":0.29,"pdo":158.0,"m":0.194,"st":57,"o25":0.13,"jun":0.2},{"nm":309671204,"n":"IDU039/451","f":"держать","d":0.33,"pdo":106.0,"m":0.24,"st":56,"o25":0.29,"jun":0.4},{"nm":309931115,"n":"IDA/310/311/(548/425)","f":"держать","d":0.14,"pdo":210.0,"m":0.261,"st":57,"o25":0.84,"jun":1.27},{"nm":310351087,"n":"MIVO132/342","f":"держать","d":0.67,"pdo":83.0,"m":0.138,"st":45,"o25":0.42,"jun":0.67},{"nm":1335534758,"n":"8in1 Excel Brewer's Yeast 260 шт","f":"держать","d":0.52,"pdo":54.0,"m":0.262,"st":95,"o25":0.0,"jun":0.0},{"nm":309732880,"n":"IDR/001/003/(222/277)","f":"держать","d":0.14,"pdo":305.0,"m":0.15,"st":54,"o25":0.0,"jun":0.27},{"nm":310351086,"n":"MIVO131/335","f":"вернуть","d":0.71,"pdo":127.0,"m":0.068,"st":51,"o25":0.42,"jun":0.8},{"nm":310116314,"n":"MIDE192/765","f":"держать","d":0.14,"pdo":157.0,"m":0.273,"st":56,"o25":0.13,"jun":0.23},{"nm":309937160,"n":"IDA014/581","f":"держать","d":0.38,"pdo":117.0,"m":0.123,"st":47,"o25":0.48,"jun":1.17},{"nm":1155991993,"n":"Vom Feinsten мясной коктейль 100гх16","f":"держать","d":0.81,"pdo":100.0,"m":0.177,"st":9,"o25":0.0,"jun":0.0},{"nm":1253375084,"n":"Vom Feinsten говядина/лосось/шпинат 100гх16","f":"держать","d":0.33,"pdo":100.0,"m":0.141,"st":17,"o25":0.0,"jun":0.0},{"nm":310527799,"n":"IAF041/512","f":"держать","d":0.24,"pdo":73.0,"m":0.269,"st":60,"o25":0.52,"jun":0.07},{"nm":833713327,"n":"MIDU310/311","f":"держать","d":0.1,"pdo":210.0,"m":0.229,"st":57,"o25":0.0,"jun":0.17},{"nm":309732877,"n":"MIDR210/456","f":"держать","d":0.19,"pdo":134.0,"m":0.175,"st":55,"o25":0.84,"jun":0.87},{"nm":309750700,"n":"IDR312-B","f":"держать","d":0.29,"pdo":74.0,"m":0.205,"st":60,"o25":1.0,"jun":0.4},{"nm":310048500,"n":"IDA311/425","f":"держать","d":0.24,"pdo":104.0,"m":0.167,"st":53,"o25":0.32,"jun":0.33},{"nm":1252999136,"n":"Vom Feinsten сердце индейки 100гх16","f":"держать","d":0.24,"pdo":102.0,"m":0.165,"st":12,"o25":0.0,"jun":0.0},{"nm":841710361,"n":"MIAF40","f":"держать","d":0.33,"pdo":84.0,"m":0.135,"st":58,"o25":0.0,"jun":0.0},{"nm":309931116,"n":"IDA/013/015/(550/604)","f":"держать","d":0.14,"pdo":304.0,"m":0.085,"st":55,"o25":0.03,"jun":0.33},{"nm":1253483961,"n":"Carny Adult Beef + Lamb 200гх6","f":"держать","d":0.67,"pdo":74.0,"m":0.139,"st":11,"o25":0.0,"jun":0.0},{"nm":503300716,"n":"IDA015/604 NEW","f":"держать","d":0.14,"pdo":153.0,"m":0.165,"st":56,"o25":0.1,"jun":0.53},{"nm":1478739850,"n":"Интегра с говядиной 85г","f":"держать","d":0.1,"pdo":163.0,"m":0.209,"st":28,"o25":0.0,"jun":0.0},{"nm":309561667,"n":"MIDU310/678","f":"держать","d":0.29,"pdo":89.0,"m":0.124,"st":52,"o25":0.58,"jun":0.73},{"nm":309686880,"n":"IDU038/437","f":"держать","d":0.19,"pdo":74.0,"m":0.219,"st":60,"o25":0.42,"jun":0.2},{"nm":1253483962,"n":"Carny Adult Multi-Meat Cocktail  200гх6","f":"держать","d":0.14,"pdo":74.0,"m":0.283,"st":23,"o25":0.0,"jun":0.0},{"nm":1253375083,"n":"Vom Feinsten говядина/курица/травы 100гх16","f":"держать","d":0.33,"pdo":98.0,"m":0.13,"st":7,"o25":0.0,"jun":0.0},{"nm":310517540,"n":"IAF012/529","f":"держать","d":0.1,"pdo":149.0,"m":0.203,"st":59,"o25":0.13,"jun":0.1},{"nm":1253426403,"n":"Vom Feinsten птица/телятина 100гх16","f":"держать","d":0.95,"pdo":102.0,"m":0.071,"st":12,"o25":0.0,"jun":0.0},{"nm":1422856976,"n":"Акана Singles Grass-fed Lamb 6 кг","f":"держать","d":0.14,"pdo":325.0,"m":0.133,"st":2,"o25":0.0,"jun":0.0},{"nm":309750701,"n":"IDR002/253","f":"держать","d":0.14,"pdo":114.0,"m":0.169,"st":55,"o25":0.16,"jun":0.2},{"nm":1152417949,"n":"Feinsten курица/говядина 24шт","f":"держать","d":0.19,"pdo":127.0,"m":0.111,"st":49,"o25":0.0,"jun":0.0},{"nm":1335515641,"n":"8in1 Exsel Calcium 470Tb","f":"держать","d":0.1,"pdo":106.0,"m":0.255,"st":79,"o25":0.0,"jun":0.0},{"nm":309745519,"n":"IDR003/277","f":"держать","d":0.1,"pdo":153.0,"m":0.178,"st":60,"o25":0.55,"jun":0.63},{"nm":833719919,"n":"MIDA310","f":"держать","d":0.14,"pdo":90.0,"m":0.19,"st":59,"o25":0.0,"jun":0.77},{"nm":309686881,"n":"IDU212","f":"держать","d":0.1,"pdo":122.0,"m":0.211,"st":60,"o25":0.0,"jun":0.0},{"nm":1152446116,"n":"Feinsten курица/минтай 24шт","f":"держать","d":0.1,"pdo":122.0,"m":0.197,"st":13,"o25":0.0,"jun":0.0},{"nm":309743633,"n":"IDR311/579","f":"держать","d":0.14,"pdo":99.0,"m":0.152,"st":59,"o25":0.45,"jun":0.43},{"nm":841703962,"n":"MIDE193","f":"держать","d":0.05,"pdo":121.0,"m":0.348,"st":60,"o25":0.0,"jun":0.03},{"nm":1253426405,"n":"Vom Feinsten домашняя птица 100гх16","f":"держать","d":0.29,"pdo":98.0,"m":0.07,"st":12,"o25":0.0,"jun":0.0},{"nm":1417224328,"n":"NPSC45667N 1,5кг мелкие рыба","f":"держать","d":0.05,"pdo":133.0,"m":0.31,"st":16,"o25":0.0,"jun":0.0},{"nm":309937158,"n":"IDA044/598","f":"держать","d":0.14,"pdo":74.0,"m":0.184,"st":56,"o25":1.03,"jun":0.3},{"nm":310319991,"n":"IVO134/366","f":"держать","d":0.24,"pdo":71.0,"m":0.11,"st":51,"o25":0.1,"jun":0.33},{"nm":309899199,"n":"ICO047/697","f":"держать","d":0.1,"pdo":73.0,"m":0.226,"st":60,"o25":0.48,"jun":0.1},{"nm":1523747762,"n":"Feinsten курица/индейка 24шт new","f":"держать","d":0.05,"pdo":127.0,"m":0.231,"st":47,"o25":0.0,"jun":0.0},{"nm":1242786479,"n":"Акана Indoor Entrée 4,5 кг","f":"держать","d":0.05,"pdo":236.3,"m":0.118,"st":9,"o25":0.0,"jun":0.0},{"nm":1152390576,"n":"Feinsten курица/лосось 24шт","f":"держать","d":0.05,"pdo":121.0,"m":0.217,"st":30,"o25":0.0,"jun":0.0},{"nm":310329852,"n":"IVO188","f":"держать","d":0.05,"pdo":103.0,"m":0.257,"st":59,"o25":0.16,"jun":0.03},{"nm":310517539,"n":"IAF311/043","f":"держать","d":0.14,"pdo":95.0,"m":0.09,"st":55,"o25":0.35,"jun":0.03},{"nm":309899200,"n":"ICO017/680","f":"держать","d":0.05,"pdo":122.0,"m":0.207,"st":60,"o25":0.35,"jun":0.07},{"nm":1242727616,"n":"Акана Grasslands 1,8 кг","f":"держать","d":0.38,"pdo":144.0,"m":0.114,"st":2,"o25":0.0,"jun":0.0},{"nm":1009460766,"n":"ICO/016/018","f":"держать","d":0.05,"pdo":239.0,"m":0.082,"st":59,"o25":0.0,"jun":0.2},{"nm":355839182,"n":"IEC200","f":"держать","d":0.05,"pdo":111.0,"m":0.153,"st":59,"o25":0.0,"jun":0.03},{"nm":1253426401,"n":"Vom Feinsten говядина/курица 100гх16","f":"вернуть","d":0.57,"pdo":102.0,"m":0.114,"st":2,"o25":0.0,"jun":0.0},{"nm":1422773434,"n":"Акана Adult Small Breed 6кг","f":"держать","d":0.05,"pdo":252.0,"m":0.069,"st":1,"o25":0.0,"jun":0.0},{"nm":310367298,"n":"MIAF10/475","f":"слив","d":0.14,"pdo":134.0,"m":0.027,"st":55,"o25":0.06,"jun":0.07},{"nm":1242459461,"n":"Акана Grasslands 4,5 кг","f":"слив","d":0.05,"pdo":264.0,"m":0.029,"st":9,"o25":0.0,"jun":0.0},{"nm":309863834,"n":"MICO310/326","f":"держать","d":0.14,"pdo":89.0,"m":0.022,"st":60,"o25":0.26,"jun":0.33},{"nm":310132706,"n":"IDE194","f":"слив","d":0.05,"pdo":171.0,"m":0.029,"st":59,"o25":0.0,"jun":0.0},{"nm":366060473,"n":"IST027/871","f":"держать","d":0.05,"pdo":204.0,"m":0.015,"st":86,"o25":0.06,"jun":0.03},{"nm":1260778695,"n":"соус Ворчестер 290 мл","f":"держать","d":0.95,"pdo":34.0,"m":0.042,"st":0,"o25":0.0,"jun":0.0},{"nm":1443476832,"n":"GC cat URINARY цыпленок/рис 7кг","f":"масштаб","d":0.95,"pdo":159.0,"m":0.173,"st":0,"o25":0.0,"jun":0.0},{"nm":1253144389,"n":"Vom Feinsten ягненок 100гх16","f":"вернуть","d":0.86,"pdo":101.0,"m":0.0,"st":3,"o25":0.0,"jun":0.0},{"nm":1422856975,"n":"Акана Singles Grass-fed Lamb 2 кг","f":"масштаб","d":0.62,"pdo":133.0,"m":0.108,"st":0,"o25":0.0,"jun":0.0},{"nm":897951822,"n":"CHINCHILLA & DEGU COMPLETE 1,75кг","f":"масштаб","d":0.52,"pdo":123.0,"m":0.303,"st":0,"o25":0.0,"jun":4.3},{"nm":1253144388,"n":"Vom Feinsten говядина 100гх16","f":"держать","d":0.38,"pdo":102.0,"m":0.226,"st":0,"o25":0.0,"jun":0.0},{"nm":1422749418,"n":"Акана DOG Pacifica RECIPE 2 кг","f":"держать","d":0.33,"pdo":131.0,"m":0.128,"st":0,"o25":0.0,"jun":0.0},{"nm":1253426404,"n":"Vom Feinsten куриная печень 100гх16","f":"держать","d":0.24,"pdo":102.0,"m":0.187,"st":0,"o25":0.0,"jun":0.0},{"nm":1260759469,"n":"Kikkoman 1L","f":"слив","d":0.24,"pdo":51.0,"m":-0.239,"st":0,"o25":0.0,"jun":0.0},{"nm":1422749417,"n":"Акана CAT Homestead Harvest 1,8 кг","f":"масштаб","d":0.24,"pdo":126.0,"m":0.207,"st":0,"o25":0.0,"jun":0.0},{"nm":1418662774,"n":"Advance VetDiets Cat Urinary 8кг","f":"держать","d":0.24,"pdo":267.0,"m":0.055,"st":0,"o25":0.0,"jun":0.0},{"nm":309753742,"n":"MIRE062/796","f":"держать","d":0.24,"pdo":183.0,"m":0.088,"st":0,"o25":0.87,"jun":0.4},{"nm":309915376,"n":"ICO048/710","f":"держать","d":0.14,"pdo":0.0,"m":0.0,"st":60,"o25":0.16,"jun":0.23},{"nm":833715219,"n":"ICO/310/311/","f":"держать","d":0.1,"pdo":207.0,"m":0.256,"st":0,"o25":0.0,"jun":0.53},{"nm":310138942,"n":"MICL190/741","f":"держать","d":0.1,"pdo":0.0,"m":0.0,"st":57,"o25":0.16,"jun":0.23},{"nm":864873556,"n":"Energy Cool M","f":"держать","d":0.1,"pdo":180.0,"m":0.341,"st":0,"o25":0.0,"jun":2.4},{"nm":760455533,"n":"CUNI ADULT COMPLETE кролики 1,75 кг","f":"держать","d":0.1,"pdo":116.0,"m":0.281,"st":0,"o25":0.0,"jun":7.3},{"nm":1422856977,"n":"Акана Singles Grass-fed Lamb 11,4 кг","f":"держать","d":0.1,"pdo":569.0,"m":0.157,"st":0,"o25":0.0,"jun":0.0},{"nm":1527562752,"n":"ICO/310/311 new","f":"держать","d":0.05,"pdo":0.0,"m":0.0,"st":59,"o25":0.0,"jun":0.0},{"nm":310527800,"n":"IAF011/505","f":"держать","d":0.05,"pdo":0.0,"m":0.0,"st":60,"o25":0.19,"jun":0.17},{"nm":1417062215,"n":"NPSC45830 рыба щенки 10кг","f":"слив","d":0.05,"pdo":0.0,"m":0.0,"st":2,"o25":0.0,"jun":0.0},{"nm":1009465349,"n":"ICO018","f":"держать","d":0.0,"pdo":138.5,"m":0.029,"st":59,"o25":0.0,"jun":0.1},{"nm":318655646,"n":"MIAO034","f":"держать","d":0.0,"pdo":0.0,"m":0.0,"st":33,"o25":0.0,"jun":0.03},{"nm":309561668,"n":"IDU/007/009/(390/444)","f":"держать","d":0.0,"pdo":245.0,"m":-0.035,"st":59,"o25":0.0,"jun":0.2},{"nm":1335515642,"n":"8in1 Exsel Calcium 880Tb","f":"держать","d":0.0,"pdo":156.0,"m":0.154,"st":18,"o25":0.0,"jun":0.0},{"nm":864581243,"n":"щетка зубная CS1009","f":"держать","d":0.0,"pdo":71.0,"m":0.31,"st":12,"o25":0.0,"jun":0.0},{"nm":1443511019,"n":"GD Dog Adult ягненок/рис 3 кг","f":"слив","d":0.0,"pdo":0.0,"m":0.0,"st":14,"o25":0.0,"jun":0.0},{"nm":1441714952,"n":"GC cat URINARY цыпленок/рис 2кг","f":"слив","d":0.0,"pdo":71.0,"m":-0.567,"st":0,"o25":0.0,"jun":0.0},{"nm":366045963,"n":"IST209","f":"держать","d":0.0,"pdo":0.0,"m":0.0,"st":12,"o25":0.03,"jun":0.07},{"nm":310138943,"n":"MICL189/494","f":"слив","d":0.14,"pdo":161.0,"m":-0.03,"st":55,"o25":0.13,"jun":0.1},{"nm":309863833,"n":"МICO016/659","f":"слив","d":0.33,"pdo":135.0,"m":-0.017,"st":55,"o25":1.68,"jun":0.73},{"nm":833708324,"n":"MIDU210","f":"слив","d":0.33,"pdo":134.0,"m":-0.059,"st":57,"o25":0.0,"jun":0.93},{"nm":1443534900,"n":"GD MINI Dog Adult курица 3кг","f":"слив","d":0.14,"pdo":89.0,"m":-0.316,"st":9,"o25":0.0,"jun":0.0},{"nm":309724789,"n":"MIDR310/562","f":"слив","d":0.86,"pdo":89.0,"m":-0.068,"st":54,"o25":0.19,"jun":0.47},{"nm":1422666628,"n":"Акана Wild Prairie 1,8 кг","f":"слив","d":0.14,"pdo":141.0,"m":-0.405,"st":5,"o25":0.0,"jun":0.0},{"nm":309732878,"n":"IDR/310/311/(562/579)","f":"слив","d":0.1,"pdo":210.0,"m":-0.505,"st":59,"o25":0.03,"jun":0.5},{"nm":1441699151,"n":"GC cat STERILIZED тунец/лосось 7кг","f":"слив","d":0.19,"pdo":164.0,"m":-0.341,"st":14,"o25":0.0,"jun":0.0},{"nm":1009471693,"n":"IAF/040/042","f":"слив","d":0.1,"pdo":217.0,"m":-0.834,"st":56,"o25":0.0,"jun":0.1}]};
-const KEY = "wb-oct-plan-2026-v1";
+const SOURCE = {"as_of":"2026-09-23","days":31,"target_op":55000.0,"opex":25000.0,"target_net":30000.0,"cal":[{"i":0,"d":1,"wd":"чт","w":1.186,"we":false},{"i":1,"d":2,"wd":"пт","w":0.9917,"we":false},{"i":2,"d":3,"wd":"сб","w":0.857,"we":true},{"i":3,"d":4,"wd":"вс","w":0.9917,"we":true},{"i":4,"d":5,"wd":"пн","w":1.0701,"we":false},{"i":5,"d":6,"wd":"вт","w":0.8695,"we":false},{"i":6,"d":7,"wd":"ср","w":1.034,"we":false},{"i":7,"d":8,"wd":"чт","w":1.186,"we":false},{"i":8,"d":9,"wd":"пт","w":0.9917,"we":false},{"i":9,"d":10,"wd":"сб","w":0.857,"we":true},{"i":10,"d":11,"wd":"вс","w":0.9917,"we":true},{"i":11,"d":12,"wd":"пн","w":1.0701,"we":false},{"i":12,"d":13,"wd":"вт","w":0.8695,"we":false},{"i":13,"d":14,"wd":"ср","w":1.034,"we":false},{"i":14,"d":15,"wd":"чт","w":1.186,"we":false},{"i":15,"d":16,"wd":"пт","w":0.9917,"we":false},{"i":16,"d":17,"wd":"сб","w":0.857,"we":true},{"i":17,"d":18,"wd":"вс","w":0.9917,"we":true},{"i":18,"d":19,"wd":"пн","w":1.0701,"we":false},{"i":19,"d":20,"wd":"вт","w":0.8695,"we":false},{"i":20,"d":21,"wd":"ср","w":1.034,"we":false},{"i":21,"d":22,"wd":"чт","w":1.186,"we":false},{"i":22,"d":23,"wd":"пт","w":0.9917,"we":false},{"i":23,"d":24,"wd":"сб","w":0.857,"we":true},{"i":24,"d":25,"wd":"вс","w":0.9917,"we":true},{"i":25,"d":26,"wd":"пн","w":1.0701,"we":false},{"i":26,"d":27,"wd":"вт","w":0.8695,"we":false},{"i":27,"d":28,"wd":"ср","w":1.034,"we":false},{"i":28,"d":29,"wd":"чт","w":1.186,"we":false},{"i":29,"d":30,"wd":"пт","w":0.9917,"we":false},{"i":30,"d":31,"wd":"сб","w":0.857,"we":true}],"skus":[{"nm":1244939198,"n":"NPSC45663 ягненок 1,5кг","f":"масштаб","now":3.48,"d0":3.84,"dN":9.34,"pdo":112.0,"m":0.175,"st":73,"inc":0,"jun":0.0},{"nm":897956796,"n":"RAT & MOUSE COMPLETE  2кг","f":"масштаб","now":2.57,"d0":2.8,"dN":6.86,"pdo":114.0,"m":0.138,"st":395,"inc":0,"jun":3.17},{"nm":1245028251,"n":"NPSC45829 рыба щенки 1,5кг","f":"масштаб","now":1.1,"d0":1.2,"dN":2.93,"pdo":121.0,"m":0.262,"st":38,"inc":0,"jun":0.0},{"nm":838593982,"n":"Интегра с курицей для кошек диаб","f":"вернуть","now":1.29,"d0":1.5,"dN":3.34,"pdo":160.0,"m":0.163,"st":149,"inc":0,"jun":6.07},{"nm":1478820148,"n":"CHINCHILLA & DEGU 3х500","f":"масштаб","now":2.86,"d0":3.11,"dN":7.63,"pdo":98.0,"m":0.105,"st":227,"inc":0,"jun":0.0},{"nm":772818535,"n":"8in1 Exsel Glucosamine 110Tb","f":"масштаб","now":1.71,"d0":1.86,"dN":4.56,"pdo":115.0,"m":0.145,"st":80,"inc":0,"jun":2.7},{"nm":772834184,"n":"8in1 Excel Brewer's Yeast l.b. 80TB","f":"масштаб","now":2.19,"d0":2.38,"dN":5.84,"pdo":53.0,"m":0.233,"st":78,"inc":0,"jun":7.17},{"nm":755026289,"n":"8in1 Excel Multi Vit-Puppy 100TB","f":"масштаб","now":1.9,"d0":2.07,"dN":5.06,"pdo":54.0,"m":0.245,"st":100,"inc":0,"jun":8.47},{"nm":624907280,"n":"8in1 Excel Glucosamine 55TB","f":"вернуть","now":2.29,"d0":2.66,"dN":5.93,"pdo":72.0,"m":0.155,"st":69,"inc":0,"jun":5.37},{"nm":587971981,"n":"8in1 Excel Multi Vit. Senior 70TB","f":"масштаб","now":2.67,"d0":2.91,"dN":7.13,"pdo":54.0,"m":0.159,"st":89,"inc":0,"jun":6.5},{"nm":893436136,"n":"8in1 Exsel Calcium 155Tb","f":"вернуть","now":1.24,"d0":1.44,"dN":3.21,"pdo":54.0,"m":0.337,"st":97,"inc":0,"jun":1.53},{"nm":1155812165,"n":"Vom Feinsten кролик/индейка 100гх16","f":"вернуть","now":1.38,"d0":1.61,"dN":3.57,"pdo":101.0,"m":0.156,"st":55,"inc":0,"jun":0.0},{"nm":536822091,"n":"Multi VitaminSmallBreed 70 шт","f":"масштаб","now":4.1,"d0":4.46,"dN":10.94,"pdo":54.0,"m":0.162,"st":69,"inc":0,"jun":8.37},{"nm":1156156553,"n":"Carny говядина 400гх6","f":"масштаб","now":0.86,"d0":0.94,"dN":2.29,"pdo":111.0,"m":0.201,"st":108,"inc":0,"jun":0.0},{"nm":996324210,"n":"Интегра с индейкой 85 г","f":"вернуть","now":0.67,"d0":0.78,"dN":1.74,"pdo":162.0,"m":0.173,"st":179,"inc":0,"jun":3.5},{"nm":755019816,"n":"8in1 Excel Multi Vit-Adult 70TB","f":"масштаб","now":2.14,"d0":2.33,"dN":5.7,"pdo":53.0,"m":0.155,"st":83,"inc":0,"jun":4.17},{"nm":1335515644,"n":"8in1 Excel Brewer's Yeast 140 шт","f":"держать","now":2.0,"d0":2.63,"dN":4.88,"pdo":41.0,"m":0.227,"st":56,"inc":0,"jun":0.0},{"nm":1417062214,"n":"NPSC45664 ягненок 10кг","f":"масштаб","now":0.1,"d0":0.11,"dN":0.27,"pdo":645.0,"m":0.223,"st":5,"inc":0,"jun":0.0},{"nm":310367301,"n":"IAF/010/012/(475/529)","f":"держать","now":0.24,"d0":0.32,"dN":0.59,"pdo":305.0,"m":0.182,"st":53,"inc":0,"jun":0.03},{"nm":309931114,"n":"MIDA210/388","f":"держать","now":1.0,"d0":1.31,"dN":2.44,"pdo":134.0,"m":0.091,"st":48,"inc":0,"jun":1.97},{"nm":1253375082,"n":"Vom Feinsten птица/говядина/свинина 100гх16","f":"вернуть","now":1.29,"d0":1.5,"dN":3.34,"pdo":100.0,"m":0.146,"st":25,"inc":0,"jun":0.0},{"nm":1417224329,"n":"NPSC45669 лосось 1,5кг щенки","f":"масштаб","now":0.33,"d0":0.36,"dN":0.88,"pdo":116.0,"m":0.304,"st":11,"inc":0,"jun":0.0},{"nm":1335515643,"n":"8in1 Excel Deter","f":"масштаб","now":2.24,"d0":2.44,"dN":5.97,"pdo":54.0,"m":0.362,"st":18,"inc":0,"jun":0.0},{"nm":309753741,"n":"MIRE061/802","f":"держать","now":0.38,"d0":0.5,"dN":0.93,"pdo":113.0,"m":0.219,"st":54,"inc":0,"jun":0.5},{"nm":446389957,"n":"Меркурий 201.7","f":"держать","now":0.95,"d0":1.25,"dN":2.32,"pdo":93.0,"m":0.102,"st":30,"inc":0,"jun":8.87},{"nm":309671205,"n":"IDU009/444","f":"держать","now":0.29,"d0":0.38,"dN":0.71,"pdo":158.0,"m":0.194,"st":57,"inc":0,"jun":0.2},{"nm":309671204,"n":"IDU039/451","f":"держать","now":0.33,"d0":0.43,"dN":0.81,"pdo":106.0,"m":0.24,"st":56,"inc":0,"jun":0.4},{"nm":309931115,"n":"IDA/310/311/(548/425)","f":"держать","now":0.14,"d0":0.18,"dN":0.34,"pdo":210.0,"m":0.261,"st":57,"inc":0,"jun":1.27},{"nm":310351087,"n":"MIVO132/342","f":"держать","now":0.67,"d0":0.88,"dN":1.63,"pdo":83.0,"m":0.138,"st":45,"inc":0,"jun":0.67},{"nm":1335534758,"n":"8in1 Excel Brewer's Yeast 260 шт","f":"держать","now":0.52,"d0":0.68,"dN":1.27,"pdo":54.0,"m":0.262,"st":95,"inc":0,"jun":0.0},{"nm":309732880,"n":"IDR/001/003/(222/277)","f":"держать","now":0.14,"d0":0.18,"dN":0.34,"pdo":305.0,"m":0.15,"st":54,"inc":0,"jun":0.27},{"nm":310351086,"n":"MIVO131/335","f":"вернуть","now":0.71,"d0":0.83,"dN":1.84,"pdo":127.0,"m":0.068,"st":51,"inc":0,"jun":0.8},{"nm":310116314,"n":"MIDE192/765","f":"держать","now":0.14,"d0":0.18,"dN":0.34,"pdo":157.0,"m":0.273,"st":56,"inc":0,"jun":0.23},{"nm":309937160,"n":"IDA014/581","f":"держать","now":0.38,"d0":0.5,"dN":0.93,"pdo":117.0,"m":0.123,"st":47,"inc":0,"jun":1.17},{"nm":1155991993,"n":"Vom Feinsten мясной коктейль 100гх16","f":"держать","now":0.81,"d0":1.06,"dN":1.98,"pdo":100.0,"m":0.177,"st":9,"inc":0,"jun":0.0},{"nm":1253375084,"n":"Vom Feinsten говядина/лосось/шпинат 100гх16","f":"держать","now":0.33,"d0":0.43,"dN":0.81,"pdo":100.0,"m":0.141,"st":17,"inc":0,"jun":0.0},{"nm":310527799,"n":"IAF041/512","f":"держать","now":0.24,"d0":0.32,"dN":0.59,"pdo":73.0,"m":0.269,"st":60,"inc":0,"jun":0.07},{"nm":833713327,"n":"MIDU310/311","f":"держать","now":0.1,"d0":0.13,"dN":0.24,"pdo":210.0,"m":0.229,"st":57,"inc":0,"jun":0.17},{"nm":309732877,"n":"MIDR210/456","f":"держать","now":0.19,"d0":0.25,"dN":0.46,"pdo":134.0,"m":0.175,"st":55,"inc":0,"jun":0.87},{"nm":309750700,"n":"IDR312-B","f":"держать","now":0.29,"d0":0.38,"dN":0.71,"pdo":74.0,"m":0.205,"st":60,"inc":0,"jun":0.4},{"nm":310048500,"n":"IDA311/425","f":"держать","now":0.24,"d0":0.32,"dN":0.59,"pdo":104.0,"m":0.167,"st":53,"inc":0,"jun":0.33},{"nm":1252999136,"n":"Vom Feinsten сердце индейки 100гх16","f":"держать","now":0.24,"d0":0.32,"dN":0.59,"pdo":102.0,"m":0.165,"st":12,"inc":0,"jun":0.0},{"nm":841710361,"n":"MIAF40","f":"держать","now":0.33,"d0":0.43,"dN":0.81,"pdo":84.0,"m":0.135,"st":58,"inc":0,"jun":0.0},{"nm":309931116,"n":"IDA/013/015/(550/604)","f":"держать","now":0.14,"d0":0.18,"dN":0.34,"pdo":304.0,"m":0.085,"st":55,"inc":0,"jun":0.33},{"nm":1253483961,"n":"Carny Adult Beef + Lamb 200гх6","f":"держать","now":0.67,"d0":0.88,"dN":1.63,"pdo":74.0,"m":0.139,"st":11,"inc":0,"jun":0.0},{"nm":503300716,"n":"IDA015/604 NEW","f":"держать","now":0.14,"d0":0.18,"dN":0.34,"pdo":153.0,"m":0.165,"st":56,"inc":0,"jun":0.53},{"nm":1478739850,"n":"Интегра с говядиной 85г","f":"держать","now":0.1,"d0":0.13,"dN":0.24,"pdo":163.0,"m":0.209,"st":28,"inc":0,"jun":0.0},{"nm":309561667,"n":"MIDU310/678","f":"держать","now":0.29,"d0":0.38,"dN":0.71,"pdo":89.0,"m":0.124,"st":52,"inc":0,"jun":0.73},{"nm":309686880,"n":"IDU038/437","f":"держать","now":0.19,"d0":0.25,"dN":0.46,"pdo":74.0,"m":0.219,"st":60,"inc":0,"jun":0.2},{"nm":1253483962,"n":"Carny Adult Multi-Meat Cocktail  200гх6","f":"держать","now":0.14,"d0":0.18,"dN":0.34,"pdo":74.0,"m":0.283,"st":23,"inc":0,"jun":0.0},{"nm":1253375083,"n":"Vom Feinsten говядина/курица/травы 100гх16","f":"держать","now":0.33,"d0":0.43,"dN":0.81,"pdo":98.0,"m":0.13,"st":7,"inc":0,"jun":0.0},{"nm":310517540,"n":"IAF012/529","f":"держать","now":0.1,"d0":0.13,"dN":0.24,"pdo":149.0,"m":0.203,"st":59,"inc":0,"jun":0.1},{"nm":1253426403,"n":"Vom Feinsten птица/телятина 100гх16","f":"держать","now":0.95,"d0":1.25,"dN":2.32,"pdo":102.0,"m":0.071,"st":12,"inc":0,"jun":0.0},{"nm":1422856976,"n":"Акана Singles Grass-fed Lamb 6 кг","f":"держать","now":0.14,"d0":0.18,"dN":0.34,"pdo":325.0,"m":0.133,"st":2,"inc":0,"jun":0.0},{"nm":309750701,"n":"IDR002/253","f":"держать","now":0.14,"d0":0.18,"dN":0.34,"pdo":114.0,"m":0.169,"st":55,"inc":0,"jun":0.2},{"nm":1152417949,"n":"Feinsten курица/говядина 24шт","f":"держать","now":0.19,"d0":0.25,"dN":0.46,"pdo":127.0,"m":0.111,"st":49,"inc":0,"jun":0.0},{"nm":1335515641,"n":"8in1 Exsel Calcium 470Tb","f":"держать","now":0.1,"d0":0.13,"dN":0.24,"pdo":106.0,"m":0.255,"st":79,"inc":0,"jun":0.0},{"nm":309745519,"n":"IDR003/277","f":"держать","now":0.1,"d0":0.13,"dN":0.24,"pdo":153.0,"m":0.178,"st":60,"inc":0,"jun":0.63},{"nm":833719919,"n":"MIDA310","f":"держать","now":0.14,"d0":0.18,"dN":0.34,"pdo":90.0,"m":0.19,"st":59,"inc":0,"jun":0.77},{"nm":309686881,"n":"IDU212","f":"держать","now":0.1,"d0":0.13,"dN":0.24,"pdo":122.0,"m":0.211,"st":60,"inc":0,"jun":0.0},{"nm":1152446116,"n":"Feinsten курица/минтай 24шт","f":"держать","now":0.1,"d0":0.13,"dN":0.24,"pdo":122.0,"m":0.197,"st":13,"inc":0,"jun":0.0},{"nm":309743633,"n":"IDR311/579","f":"держать","now":0.14,"d0":0.18,"dN":0.34,"pdo":99.0,"m":0.152,"st":59,"inc":0,"jun":0.43},{"nm":841703962,"n":"MIDE193","f":"держать","now":0.05,"d0":0.07,"dN":0.12,"pdo":121.0,"m":0.348,"st":60,"inc":0,"jun":0.03},{"nm":1253426405,"n":"Vom Feinsten домашняя птица 100гх16","f":"держать","now":0.29,"d0":0.38,"dN":0.71,"pdo":98.0,"m":0.07,"st":12,"inc":0,"jun":0.0},{"nm":1417224328,"n":"NPSC45667N 1,5кг мелкие рыба","f":"держать","now":0.05,"d0":0.07,"dN":0.12,"pdo":133.0,"m":0.31,"st":16,"inc":0,"jun":0.0},{"nm":309937158,"n":"IDA044/598","f":"держать","now":0.14,"d0":0.18,"dN":0.34,"pdo":74.0,"m":0.184,"st":56,"inc":0,"jun":0.3},{"nm":310319991,"n":"IVO134/366","f":"держать","now":0.24,"d0":0.32,"dN":0.59,"pdo":71.0,"m":0.11,"st":51,"inc":0,"jun":0.33},{"nm":309899199,"n":"ICO047/697","f":"держать","now":0.1,"d0":0.13,"dN":0.24,"pdo":73.0,"m":0.226,"st":60,"inc":0,"jun":0.1},{"nm":1523747762,"n":"Feinsten курица/индейка 24шт new","f":"держать","now":0.05,"d0":0.07,"dN":0.12,"pdo":127.0,"m":0.231,"st":47,"inc":0,"jun":0.0},{"nm":1242786479,"n":"Акана Indoor Entrée 4,5 кг","f":"держать","now":0.05,"d0":0.07,"dN":0.12,"pdo":236.3,"m":0.118,"st":9,"inc":0,"jun":0.0},{"nm":1152390576,"n":"Feinsten курица/лосось 24шт","f":"держать","now":0.05,"d0":0.07,"dN":0.12,"pdo":121.0,"m":0.217,"st":30,"inc":0,"jun":0.0},{"nm":310329852,"n":"IVO188","f":"держать","now":0.05,"d0":0.07,"dN":0.12,"pdo":103.0,"m":0.257,"st":59,"inc":0,"jun":0.03},{"nm":310517539,"n":"IAF311/043","f":"держать","now":0.14,"d0":0.18,"dN":0.34,"pdo":95.0,"m":0.09,"st":55,"inc":0,"jun":0.03},{"nm":309899200,"n":"ICO017/680","f":"держать","now":0.05,"d0":0.07,"dN":0.12,"pdo":122.0,"m":0.207,"st":60,"inc":0,"jun":0.07},{"nm":1242727616,"n":"Акана Grasslands 1,8 кг","f":"держать","now":0.38,"d0":0.5,"dN":0.93,"pdo":144.0,"m":0.114,"st":2,"inc":0,"jun":0.0},{"nm":1009460766,"n":"ICO/016/018","f":"держать","now":0.05,"d0":0.07,"dN":0.12,"pdo":239.0,"m":0.082,"st":59,"inc":0,"jun":0.2},{"nm":355839182,"n":"IEC200","f":"держать","now":0.05,"d0":0.07,"dN":0.12,"pdo":111.0,"m":0.153,"st":59,"inc":0,"jun":0.03},{"nm":1253426401,"n":"Vom Feinsten говядина/курица 100гх16","f":"вернуть","now":0.57,"d0":0.66,"dN":1.48,"pdo":102.0,"m":0.114,"st":2,"inc":0,"jun":0.0},{"nm":1422773434,"n":"Акана Adult Small Breed 6кг","f":"держать","now":0.05,"d0":0.07,"dN":0.12,"pdo":252.0,"m":0.069,"st":1,"inc":0,"jun":0.0},{"nm":310367298,"n":"MIAF10/475","f":"слив","now":0.14,"d0":0.0,"dN":0.0,"pdo":134.0,"m":0.027,"st":55,"inc":0,"jun":0.07},{"nm":1242459461,"n":"Акана Grasslands 4,5 кг","f":"слив","now":0.05,"d0":0.0,"dN":0.0,"pdo":264.0,"m":0.029,"st":9,"inc":0,"jun":0.0},{"nm":309863834,"n":"MICO310/326","f":"держать","now":0.14,"d0":0.0,"dN":0.0,"pdo":89.0,"m":0.022,"st":60,"inc":0,"jun":0.33},{"nm":310132706,"n":"IDE194","f":"слив","now":0.05,"d0":0.0,"dN":0.0,"pdo":171.0,"m":0.029,"st":59,"inc":0,"jun":0.0},{"nm":366060473,"n":"IST027/871","f":"держать","now":0.05,"d0":0.0,"dN":0.0,"pdo":204.0,"m":0.015,"st":86,"inc":0,"jun":0.03},{"nm":1260778695,"n":"соус Ворчестер 290 мл","f":"держать","now":0.95,"d0":0.0,"dN":0.0,"pdo":34.0,"m":0.042,"st":0,"inc":0,"jun":0.0},{"nm":1443476832,"n":"GC cat URINARY цыпленок/рис 7кг","f":"масштаб","now":0.95,"d0":1.03,"dN":2.53,"pdo":159.0,"m":0.173,"st":0,"inc":0,"jun":0.0},{"nm":1253144389,"n":"Vom Feinsten ягненок 100гх16","f":"вернуть","now":0.86,"d0":0.0,"dN":0.0,"pdo":101.0,"m":0.0,"st":3,"inc":0,"jun":0.0},{"nm":1422856975,"n":"Акана Singles Grass-fed Lamb 2 кг","f":"масштаб","now":0.62,"d0":0.67,"dN":1.65,"pdo":133.0,"m":0.108,"st":0,"inc":0,"jun":0.0},{"nm":897951822,"n":"CHINCHILLA & DEGU COMPLETE 1,75кг","f":"масштаб","now":0.52,"d0":0.57,"dN":1.39,"pdo":123.0,"m":0.303,"st":0,"inc":0,"jun":4.3},{"nm":1253144388,"n":"Vom Feinsten говядина 100гх16","f":"держать","now":0.38,"d0":0.5,"dN":0.93,"pdo":102.0,"m":0.226,"st":0,"inc":0,"jun":0.0},{"nm":1422749418,"n":"Акана DOG Pacifica RECIPE 2 кг","f":"держать","now":0.33,"d0":0.43,"dN":0.81,"pdo":131.0,"m":0.128,"st":0,"inc":0,"jun":0.0},{"nm":1253426404,"n":"Vom Feinsten куриная печень 100гх16","f":"держать","now":0.24,"d0":0.32,"dN":0.59,"pdo":102.0,"m":0.187,"st":0,"inc":0,"jun":0.0},{"nm":1260759469,"n":"Kikkoman 1L","f":"слив","now":0.24,"d0":0.0,"dN":0.0,"pdo":51.0,"m":-0.239,"st":0,"inc":0,"jun":0.0},{"nm":1422749417,"n":"Акана CAT Homestead Harvest 1,8 кг","f":"масштаб","now":0.24,"d0":0.26,"dN":0.64,"pdo":126.0,"m":0.207,"st":0,"inc":0,"jun":0.0},{"nm":1418662774,"n":"Advance VetDiets Cat Urinary 8кг","f":"держать","now":0.24,"d0":0.0,"dN":0.0,"pdo":267.0,"m":0.055,"st":0,"inc":0,"jun":0.0},{"nm":309753742,"n":"MIRE062/796","f":"держать","now":0.24,"d0":0.32,"dN":0.59,"pdo":183.0,"m":0.088,"st":0,"inc":0,"jun":0.4},{"nm":309915376,"n":"ICO048/710","f":"держать","now":0.14,"d0":0.0,"dN":0.0,"pdo":0.0,"m":0.0,"st":60,"inc":0,"jun":0.23},{"nm":833715219,"n":"ICO/310/311/","f":"держать","now":0.1,"d0":0.13,"dN":0.24,"pdo":207.0,"m":0.256,"st":0,"inc":0,"jun":0.53},{"nm":310138942,"n":"MICL190/741","f":"держать","now":0.1,"d0":0.0,"dN":0.0,"pdo":0.0,"m":0.0,"st":57,"inc":0,"jun":0.23},{"nm":864873556,"n":"Energy Cool M","f":"держать","now":0.1,"d0":0.13,"dN":0.24,"pdo":180.0,"m":0.341,"st":0,"inc":0,"jun":2.4},{"nm":760455533,"n":"CUNI ADULT COMPLETE кролики 1,75 кг","f":"держать","now":0.1,"d0":0.13,"dN":0.24,"pdo":116.0,"m":0.281,"st":0,"inc":0,"jun":7.3},{"nm":1422856977,"n":"Акана Singles Grass-fed Lamb 11,4 кг","f":"держать","now":0.1,"d0":0.13,"dN":0.24,"pdo":569.0,"m":0.157,"st":0,"inc":0,"jun":0.0},{"nm":1527562752,"n":"ICO/310/311 new","f":"держать","now":0.05,"d0":0.0,"dN":0.0,"pdo":0.0,"m":0.0,"st":59,"inc":0,"jun":0.0},{"nm":310527800,"n":"IAF011/505","f":"держать","now":0.05,"d0":0.0,"dN":0.0,"pdo":0.0,"m":0.0,"st":60,"inc":0,"jun":0.17},{"nm":1417062215,"n":"NPSC45830 рыба щенки 10кг","f":"слив","now":0.05,"d0":0.0,"dN":0.0,"pdo":0.0,"m":0.0,"st":2,"inc":0,"jun":0.0},{"nm":1009465349,"n":"ICO018","f":"держать","now":0.0,"d0":0.0,"dN":0.0,"pdo":138.5,"m":0.029,"st":59,"inc":0,"jun":0.1},{"nm":318655646,"n":"MIAO034","f":"держать","now":0.0,"d0":0.0,"dN":0.0,"pdo":0.0,"m":0.0,"st":33,"inc":0,"jun":0.03},{"nm":309561668,"n":"IDU/007/009/(390/444)","f":"держать","now":0.0,"d0":0.0,"dN":0.0,"pdo":245.0,"m":-0.035,"st":59,"inc":0,"jun":0.2},{"nm":1335515642,"n":"8in1 Exsel Calcium 880Tb","f":"держать","now":0.0,"d0":0.0,"dN":0.0,"pdo":156.0,"m":0.154,"st":18,"inc":0,"jun":0.0},{"nm":864581243,"n":"щетка зубная CS1009","f":"держать","now":0.0,"d0":0.0,"dN":0.0,"pdo":71.0,"m":0.31,"st":12,"inc":0,"jun":0.0},{"nm":1443511019,"n":"GD Dog Adult ягненок/рис 3 кг","f":"слив","now":0.0,"d0":0.0,"dN":0.0,"pdo":0.0,"m":0.0,"st":14,"inc":0,"jun":0.0},{"nm":1441714952,"n":"GC cat URINARY цыпленок/рис 2кг","f":"слив","now":0.0,"d0":0.0,"dN":0.0,"pdo":71.0,"m":-0.567,"st":0,"inc":0,"jun":0.0},{"nm":366045963,"n":"IST209","f":"держать","now":0.0,"d0":0.0,"dN":0.0,"pdo":0.0,"m":0.0,"st":12,"inc":0,"jun":0.07},{"nm":310138943,"n":"MICL189/494","f":"слив","now":0.14,"d0":0.0,"dN":0.0,"pdo":161.0,"m":-0.03,"st":55,"inc":0,"jun":0.1},{"nm":309863833,"n":"МICO016/659","f":"слив","now":0.33,"d0":0.0,"dN":0.0,"pdo":135.0,"m":-0.017,"st":55,"inc":0,"jun":0.73},{"nm":833708324,"n":"MIDU210","f":"слив","now":0.33,"d0":0.0,"dN":0.0,"pdo":134.0,"m":-0.059,"st":57,"inc":0,"jun":0.93},{"nm":1443534900,"n":"GD MINI Dog Adult курица 3кг","f":"слив","now":0.14,"d0":0.0,"dN":0.0,"pdo":89.0,"m":-0.316,"st":9,"inc":0,"jun":0.0},{"nm":309724789,"n":"MIDR310/562","f":"слив","now":0.86,"d0":0.0,"dN":0.0,"pdo":89.0,"m":-0.068,"st":54,"inc":0,"jun":0.47},{"nm":1422666628,"n":"Акана Wild Prairie 1,8 кг","f":"слив","now":0.14,"d0":0.0,"dN":0.0,"pdo":141.0,"m":-0.405,"st":5,"inc":0,"jun":0.0},{"nm":309732878,"n":"IDR/310/311/(562/579)","f":"слив","now":0.1,"d0":0.0,"dN":0.0,"pdo":210.0,"m":-0.505,"st":59,"inc":0,"jun":0.5},{"nm":1441699151,"n":"GC cat STERILIZED тунец/лосось 7кг","f":"слив","now":0.19,"d0":0.0,"dN":0.0,"pdo":164.0,"m":-0.341,"st":14,"inc":0,"jun":0.0},{"nm":1009471693,"n":"IAF/040/042","f":"слив","now":0.1,"d0":0.0,"dN":0.0,"pdo":217.0,"m":-0.834,"st":56,"inc":0,"jun":0.1}]};
+const KEY = "wb-q4-plan-2026-v2";
 const FLAGS = ["масштаб","вернуть","держать","слив"];
 let rows = load();
-let sortKey = "opm";
+let opex = loadOpex();
+let showDays = false;
+let open = null;
+let sortKey = "op";
 let sortDir = -1;
 
 function load(){
@@ -151,30 +171,63 @@ function load(){
   } catch(e){}
   return SOURCE.skus.map(s => ({...s}));
 }
-function save(){ localStorage.setItem(KEY, JSON.stringify(rows)); }
-function k(){ const v = parseFloat(document.getElementById("k").value); return isFinite(v) ? v : 1; }
-function num(el, def){ const v = parseFloat(String(el).replace(",", ".")); return isFinite(v) ? v : def; }
+function loadOpex(){
+  const v = parseFloat(localStorage.getItem(KEY+"-opex"));
+  return isFinite(v) ? v : SOURCE.opex;
+}
+function save(){
+  localStorage.setItem(KEY, JSON.stringify(rows));
+  localStorage.setItem(KEY+"-opex", String(opex));
+}
+function num(v, def){
+  const x = parseFloat(String(v).replace(/\s/g,"").replace(",", "."));
+  return isFinite(x) ? x : def;
+}
+function daysOf(s){
+  if (s.custom && Array.isArray(s.days) && s.days.length === SOURCE.days) {
+    return s.days.map(x => Math.max(0, +x || 0));
+  }
+  const out = [];
+  for (let i=0;i<SOURCE.days;i++){
+    const t = i / (SOURCE.days - 1);
+    const base = (s.d0 || 0) + ((s.dN || 0) - (s.d0 || 0)) * t;
+    out.push(Math.max(0, base * SOURCE.cal[i].w));
+  }
+  return out;
+}
 function calc(s){
-  const day = Math.max(0, (s.d || 0) * k());
-  const month = day * SOURCE.days;
-  const feas = Math.min(month, Math.max(0, s.st || 0));
+  const days = daysOf(s);
+  const qty = days.reduce((a,b)=>a+b,0);
   const pu = (s.pdo || 0) * (s.m || 0);
+  const avail = Math.max(0, (s.st || 0) + (s.inc || 0));
+  const feas = Math.min(qty, avail);
   return {
-    day, month, feas, pu,
-    opd: day * pu,
-    opm: feas * pu,
-    pdom: feas * s.pdo,
-    cover: day > 0 ? s.st / day : null,
-    need: Math.max(0, Math.ceil(month - (s.st || 0))),
+    days, qty, feas, pu,
+    op: qty * pu,
+    opf: feas * pu,
+    pdo: qty * (s.pdo || 0),
+    pdof: feas * (s.pdo || 0),
+    need: Math.max(0, Math.ceil(qty - avail)),
+    d0: days[0] || 0,
+    dN: days[SOURCE.days-1] || 0,
   };
 }
-function fmt(v, d){ if (v == null || !isFinite(v)) return "—"; return Number(v).toLocaleString("ru-RU", {maximumFractionDigits:d, minimumFractionDigits:d}); }
-function money(v){ if (!isFinite(v)) return "—"; const a = Math.abs(v); if (a >= 1000) return (v/1000).toLocaleString("ru-RU",{maximumFractionDigits:1})+"k"; return fmt(v,0); }
+function money(v){
+  if (!isFinite(v)) return "—";
+  return Math.round(v).toLocaleString("ru-RU");
+}
+function fmt(v, d){
+  if (v == null || !isFinite(v)) return "—";
+  return Number(v).toLocaleString("ru-RU", {maximumFractionDigits:d, minimumFractionDigits:d});
+}
+function esc(s){ return String(s ?? "").replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;"); }
+
 function filtered(){
   const q = (document.getElementById("q").value || "").trim().toLowerCase();
   const f = document.getElementById("flag").value;
   return rows.map((s,i) => ({s,i,c:calc(s)})).filter(({s,c}) => {
-    if (f === "дыра") { if (!(c.need >= 8 || (s.st === 0 && c.day >= 0.4))) return false; }
+    if (f === "дыра") { if (c.need < 1) return false; }
+    else if (f === "план") { if (c.qty < 0.5) return false; }
     else if (f !== "все" && s.f !== f) return false;
     if (q && !(String(s.n).toLowerCase().includes(q) || String(s.nm).includes(q))) return false;
     return true;
@@ -185,99 +238,172 @@ function filtered(){
     return (av - bv) * sortDir;
   });
 }
-function setField(i, field, value, extra){
+function setField(i, field, value){
   if (field === "n" || field === "f") rows[i][field] = value;
   else if (field === "m") rows[i].m = num(value,0) / 100;
-  else if (field === "month") rows[i].d = +(num(value,0) / SOURCE.days / k()).toFixed(2);
-  else rows[i][field] = num(value,0);
-  if (extra) Object.assign(rows[i], extra);
-  save();
+  else if (field === "qty") {
+    const c = calc(rows[i]);
+    const k = c.qty > 0 ? num(value,0) / c.qty : 0;
+    rows[i].d0 = +((rows[i].d0 || 0) * k).toFixed(2);
+    rows[i].dN = +((rows[i].dN || 0) * k).toFixed(2);
+    rows[i].custom = false;
+  }
+  else {
+    rows[i][field] = num(value,0);
+    if (field === "d0" || field === "dN") rows[i].custom = false;
+  }
+  save(); render();
+}
+function setDay(i, d, value){
+  const days = daysOf(rows[i]);
+  days[d] = num(value,0);
+  rows[i].days = days;
+  rows[i].custom = true;
+  rows[i].d0 = +days[0].toFixed(2);
+  rows[i].dN = +days[days.length-1].toFixed(2);
+  save(); render();
+}
+function setOpex(v){
+  opex = num(v, SOURCE.opex);
+  save(); render();
+}
+function toggleOpen(i){
+  open = open === i ? null : i;
   render();
 }
-function isDirty(s){
-  const o = SOURCE.skus.find(x => x.nm === s.nm);
-  if (!o) return true;
-  return s.d !== o.d || s.pdo !== o.pdo || s.m !== o.m || s.st !== o.st;
+function toggleDays(){
+  showDays = !showDays;
+  document.getElementById("btn-days").className = showDays ? "on" : "";
+  render();
+}
+function head(){
+  let days = "";
+  if (showDays) {
+    days = SOURCE.cal.map(c => `<th title="${c.wd}">${c.d}</th>`).join("");
+  }
+  return `<tr>
+    <th class="l" onclick="sortBy('f')">роль</th>
+    <th class="l" onclick="sortBy('n')">артикул</th>
+    <th onclick="sortBy('now')">сейчас</th>
+    <th onclick="sortBy('d0')">1 окт</th>
+    <th onclick="sortBy('dN')">31 окт</th>
+    <th onclick="sortBy('qty')">шт окт</th>
+    ${days}
+    <th onclick="sortBy('pdo')">Pдо</th>
+    <th onclick="sortBy('m')">маржа %</th>
+    <th onclick="sortBy('pu')">прибыль/шт</th>
+    <th onclick="sortBy('op')">прибыль</th>
+    <th onclick="sortBy('st')">сток</th>
+    <th>приход</th>
+    <th onclick="sortBy('need')">довезу</th>
+    <th></th>
+  </tr>`;
 }
 function inp(i, field, val, cls){
-  return `<input class="cell ${cls||""} ${isDirty(rows[i]) && field!=="n" && field!=="f" ? "dirty":""}" value="${val}" onchange="setField(${i},'${field}',this.value)">`;
+  return `<input class="cell ${cls||""}" value="${val}" onchange="setField(${i},'${field}',this.value)">`;
 }
 function render(){
   const list = filtered();
-  const tb = document.getElementById("tb");
-  tb.innerHTML = list.map(({s,i,c}) => {
-    const hole = c.need >= 8 || (s.st === 0 && c.day >= 0.4);
-    const cls = [c.pu < 0 ? "neg" : "", s.st === 0 && c.day > 0 ? "oos" : "", hole ? "hole" : ""].join(" ");
-    return `<tr class="${cls}">
-      <td class="left"><select class="cell flag" onchange="setField(${i},'f',this.value)">${FLAGS.map(f=>`<option ${f===s.f?"selected":""}>${f}</option>`).join("")}</select></td>
-      <td class="left">${inp(i,"n",esc(s.n),"name")}<div class="nm">${s.nm}</div></td>
-      <td>${inp(i,"d",s.d)}</td>
-      <td>${inp(i,"month",+c.month.toFixed(1))}</td>
+  document.getElementById("th").innerHTML = head();
+  const extra = showDays ? SOURCE.days : 0;
+
+  document.getElementById("tb").innerHTML = list.map(({s,i,c}) => {
+    const days = showDays ? c.days.map((q,d) => `<td>${fmt(q,1)}</td>`).join("") : "";
+    const opened = open === i ? `<tr class="days-row"><td colspan="${14+extra}"><div class="days-grid">${
+      c.days.map((q,d) => `<div><label>${SOURCE.cal[d].d} ${SOURCE.cal[d].wd}</label><input class="cell" value="${q.toFixed(1)}" onchange="setDay(${i},${d},this.value)"></div>`).join("")
+    }</div></td></tr>` : "";
+    return `<tr class="${open===i?"open":""}">
+      <td class="l"><select class="cell" onchange="setField(${i},'f',this.value)">${FLAGS.map(f=>`<option ${f===s.f?"selected":""}>${f}</option>`).join("")}</select></td>
+      <td class="l"><a href="#" onclick="toggleOpen(${i});return false">${esc(s.n)}</a><div class="nm">${s.nm}</div></td>
+      <td class="readonly">${s.now?fmt(s.now,1):"—"}</td>
+      <td>${inp(i,"d0",s.d0)}</td>
+      <td>${inp(i,"dN",s.dN)}</td>
+      <td>${inp(i,"qty", +c.qty.toFixed(1))}</td>
+      ${days}
       <td>${inp(i,"pdo",s.pdo)}</td>
-      <td>${inp(i,"m",+(s.m*100).toFixed(1))}</td>
-      <td><span class="calc ${c.pu<0?"neg":""}" title="=Pдо×маржа">${fmt(c.pu,1)}</span></td>
-      <td class="op"><span class="calc ${c.opd<0?"neg":""}" title="=шт/день×прибыль/шт">${fmt(c.opd,0)}</span></td>
-      <td class="op"><span class="calc ${c.opm<0?"neg":""}" title="=выполнимо×прибыль/шт">${fmt(c.opm,0)}</span></td>
-      <td><span class="calc" title="=выполнимо×Pдо">${fmt(c.pdom,0)}</span></td>
+      <td>${inp(i,"m", +((s.m||0)*100).toFixed(1))}</td>
+      <td class="${c.pu<0?"neg":""}">${fmt(c.pu,1)}</td>
+      <td class="${c.op<0?"neg":""}">${fmt(c.op,0)}</td>
       <td>${inp(i,"st",s.st)}</td>
-      <td><span class="calc" title="=сток/шт/день">${c.cover==null?"—":fmt(c.cover,0)}</span></td>
-      <td><span class="calc">${c.need?fmt(c.need,0):"—"}</span></td>
-      <td><span class="calc">${s.o25?fmt(s.o25,1):"—"}</span></td>
-      <td><span class="calc">${s.jun?fmt(s.jun,1):"—"}</span></td>
-      <td><button class="del" onclick="delRow(${i})" title="удалить">✕</button></td>
-    </tr>`;
+      <td>${inp(i,"inc",s.inc||0)}</td>
+      <td>${c.need?fmt(c.need,0):"—"}</td>
+      <td><button class="del" onclick="delRow(${i})">×</button></td>
+    </tr>${opened}`;
   }).join("");
 
-  const t = list.reduce((a,{c}) => {
-    a.day += c.day; a.month += c.month; a.feas += c.feas; a.opd += c.opd; a.opm += c.opm; a.pdom += c.pdom; a.need += c.need; a.st += 0;
+  const t = list.reduce((a,{s,c}) => {
+    a.now += s.now||0; a.d0 += c.d0; a.dN += c.dN; a.qty += c.qty; a.feas += c.feas;
+    a.op += c.op; a.opf += c.opf; a.pdo += c.pdo; a.need += c.need;
+    c.days.forEach((q,i) => a.daily[i]+=q);
     return a;
-  }, {day:0,month:0,feas:0,opd:0,opm:0,pdom:0,need:0});
+  }, {now:0,d0:0,dN:0,qty:0,feas:0,op:0,opf:0,pdo:0,need:0,daily:Array(SOURCE.days).fill(0)});
+
+  const dayCells = showDays ? t.daily.map(q => `<td>${fmt(q,0)}</td>`).join("") : "";
   document.getElementById("tf").innerHTML = `<tr>
-    <td class="left" colspan="2">${list.length} арт.</td>
-    <td>${fmt(t.day,1)}</td><td>${fmt(t.month,0)}</td>
+    <td class="l" colspan="2">${list.length} арт.</td>
+    <td>${fmt(t.now,1)}</td><td>${fmt(t.d0,1)}</td><td>${fmt(t.dN,1)}</td><td>${fmt(t.qty,0)}</td>
+    ${dayCells}
     <td></td><td></td><td></td>
-    <td>${fmt(t.opd,0)}</td><td>${fmt(t.opm,0)}</td><td>${fmt(t.pdom,0)}</td>
-    <td></td><td></td><td>${t.need?fmt(t.need,0):"—"}</td><td></td><td></td><td></td>
+    <td>${fmt(t.op,0)}</td><td></td><td></td><td>${t.need?fmt(t.need,0):"—"}</td><td></td>
   </tr>`;
 
-  const mar = t.pdom ? t.opm / t.pdom : 0;
-  const uncappedOp = list.reduce((a,{s,c}) => a + c.month * c.pu, 0);
-  const uncappedPdo = list.reduce((a,{s,c}) => a + c.month * s.pdo, 0);
-  document.getElementById("kpi").innerHTML = [
-    card("шт/день", fmt(t.day,1), "после сезона ×"+k()),
-    card("шт/мес план", fmt(t.month,0), "выполнимо "+fmt(t.feas,0)),
-    card("Pдо/мес", money(t.pdom), "без стока "+money(uncappedPdo)),
-    card("прибыль/мес", money(t.opm), "в день "+fmt(t.opd,0)),
-    card("маржа", (mar*100).toFixed(1)+"%", "прибыль / Pдо"),
-    card("довезу", t.need?fmt(t.need,0)+" шт":"—", "дыр по плану", t.need>=20),
-  ].join("");
+  const net = t.op - opex;
+  const netf = t.opf - opex;
+  const mar = t.pdo ? t.op / t.pdo : 0;
+  document.getElementById("v-op").textContent = money(t.op);
+  document.getElementById("v-net").textContent = money(net);
+  document.getElementById("opex").value = money(opex);
+  document.getElementById("h-op").textContent = "цель " + money(SOURCE.target_op) + (Math.abs(t.op-SOURCE.target_op)<150 ? "" : " · разница " + money(t.op-SOURCE.target_op));
+  document.getElementById("h-net").textContent = "цель " + money(SOURCE.target_net) + (Math.abs(net-SOURCE.target_net)<150 ? "" : " · разница " + money(net-SOURCE.target_net));
+  document.getElementById("gap").innerHTML =
+    `Со складом сейчас: маржа <b>${money(t.opf)}</b> − расход <b>${money(opex)}</b> = ЧП <b>${money(netf)}</b>. ` +
+    `Чтобы выйти на 30 тыс. чистыми, не хватает <b>${money(Math.max(0, SOURCE.target_net - netf))}</b> — это довоз и темп, не оформление таблицы.`;
+
+  const tempo0 = list.reduce((a,{s}) => a + (s.d0||0), 0);
+  const tempoN = list.reduce((a,{s}) => a + (s.dN||0), 0);
+  document.getElementById("meta").innerHTML = [
+    ["темп 1 окт", fmt(tempo0,1)+" шт/день"],
+    ["среднее", fmt(t.qty/SOURCE.days,1)+" шт/день"],
+    ["темп к ноябрю", fmt(tempoN,1)+" шт/день"],
+    ["Pдо / мес", money(t.pdo)],
+    ["маржа %", (mar*100).toFixed(1)+"%"],
+    ["довезу", t.need?fmt(t.need,0)+" шт":"—"],
+  ].map(([k,v]) => `<div><span>${k}</span><b>${v}</b></div>`).join("");
+
+  document.getElementById("cal").innerHTML = SOURCE.cal.map((c,i) =>
+    `<div class="c${c.we?" we":""}"><div class="wd">${c.wd}</div><div class="dd">${c.d}</div><div class="q">${fmt(t.daily[i],0)}</div></div>`
+  ).join("");
 }
-function card(label, value, hint, warn){
-  return `<div class="kpi-card${warn?" warn":""}"><div class="label">${label}</div><div class="value">${value}</div><div class="hint">${hint||""}</div></div>`;
+function sortBy(k){
+  if (sortKey === k) sortDir *= -1; else { sortKey = k; sortDir = -1; }
+  render();
 }
-function esc(s){ return String(s??"").replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;"); }
 function addRow(){
-  rows.unshift({nm: Date.now()%1000000000, n:"новый артикул", f:"держать", d:0, pdo:0, m:0, st:0, o25:0, jun:0});
+  rows.unshift({nm: Date.now()%1000000000, n:"новый артикул", f:"держать", now:0, d0:0, dN:0, pdo:0, m:0, st:0, inc:0, jun:0});
   save(); render();
 }
 function delRow(i){ rows.splice(i,1); save(); render(); }
 function resetAll(){
-  if (!confirm("Вернуть исходные числа с 23.09?")) return;
+  if (!confirm("Вернуть исходный план на 55 000 / 30 000?")) return;
   localStorage.removeItem(KEY);
+  localStorage.removeItem(KEY+"-opex");
   rows = SOURCE.skus.map(s => ({...s}));
-  document.getElementById("k").value = "1";
+  opex = SOURCE.opex;
   render();
 }
 function exportCsv(){
-  const head = ["nm","артикул","флаг","шт/день","шт/мес","Pдо","маржа%","прибыль/шт","прибыль/день","прибыль/мес","Pдо/мес","сток","дней","довезу"];
+  const head = ["nm","артикул","роль","сейчас","1 окт","31 окт",...SOURCE.cal.map(c=>c.d+" "+c.wd),"шт окт","Pдо","маржа%","прибыль/шт","прибыль","сток","приход","довезу"];
   const lines = [head.join(";")];
   filtered().forEach(({s,c}) => {
-    lines.push([s.nm,s.n,s.f,c.day.toFixed(2),c.month.toFixed(1),s.pdo,(s.m*100).toFixed(1),c.pu.toFixed(2),c.opd.toFixed(1),c.opm.toFixed(1),c.pdom.toFixed(1),s.st,c.cover==null?"":c.cover.toFixed(1),c.need].join(";"));
+    lines.push([
+      s.nm,s.n,s.f,s.now,c.d0.toFixed(2),c.dN.toFixed(2),
+      ...c.days.map(q=>q.toFixed(2)),
+      c.qty.toFixed(1),s.pdo,((s.m||0)*100).toFixed(1),c.pu.toFixed(2),c.op.toFixed(1),s.st,s.inc||0,c.need
+    ].join(";"));
   });
-  const blob = new Blob(["\ufeff"+lines.join("\n")], {type:"text/csv;charset=utf-8"});
   const a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download = "план_октябрь_2026.csv";
+  a.href = URL.createObjectURL(new Blob(["\ufeff"+lines.join("\n")], {type:"text/csv;charset=utf-8"}));
+  a.download = "план_октябрь_ноябрь_2026.csv";
   a.click();
 }
 render();
