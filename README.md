@@ -30,9 +30,13 @@
 ## Обновление
 
 ```bash
-python3 Бизнес/Маркетплейсы/WB/Менеджер/Дашборд_план/build_october_plan.py --target-op 60000
+python3 Бизнес/Маркетплейсы/WB/Менеджер/scripts/fetch_plan_fact.py
+python3 Бизнес/Маркетплейсы/WB/Менеджер/scripts/compute_rnp_day.py
+python3 Бизнес/Маркетплейсы/WB/Менеджер/Дашборд_план/build_october_plan.py --refresh-fact
 python3 Бизнес/Маркетплейсы/WB/Менеджер/scripts/publish_october_plan.py --skip-build
 ```
+
+План шт не перекладывать в ежедневке. Маржа вчера — РНП (заказы × выкуп 89,25% × юнитка − реклама). План выручки и прибыли за день — × тот же выкуп.
 
 ## Локально
 
