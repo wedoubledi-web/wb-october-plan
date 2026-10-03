@@ -165,7 +165,7 @@ function pastIdx(){
 }
 function bo(){ return Number(D.buyout)||0.8925; }
 function planPdo(d){ return d.pdo_buy != null ? Number(d.pdo_buy) : Math.round((Number(d.pdo)||0)*bo()); }
-function planOp(d){ return d.op_buy != null ? Number(d.op_buy) : Math.round((Number(d.op)||0)*bo()); }
+function planOp(d){ return Number(d.op)||0; }
 function skuMtd(s){
   const idx = pastIdx();
   let plan = 0, fact = 0;
@@ -229,14 +229,14 @@ function renderBoard(){
   const mPlan = past.reduce((a,d)=>a+(d.qty||0),0);
   const mFact = past.reduce((a,d)=>a+(d.fact||0),0);
   const yest = [...past].reverse()[0];
-  const yp = D.yesterday_plan || (yest ? {qty:yest.qty, pdo_buy:planPdo(yest), op_buy:planOp(yest), margin: yest.pdo ? Math.round(yest.op/yest.pdo*1000)/10 : null} : null);
+  const yp = D.yesterday_plan || (yest ? {qty:yest.qty, pdo_buy:planPdo(yest), op:yest.op, margin: yest.pdo ? Math.round(yest.op/yest.pdo*1000)/10 : null} : null);
   const yr = D.yesterday_rnp || (yest && yest.rnp) || null;
   document.getElementById("kpis").innerHTML = [
     {t:"Заказы с 1 октября", n:pcs(mFact), s:"план "+pcs(mPlan)+" · "+pct(mFact,mPlan)},
     {t:"Выполнение плана", n:pct(mFact,mPlan), s:past.length+" дн. из 31 · шт"},
     {t:"Вчера заказы", n:yest?pcs(yest.fact):"—", s:yest?("план "+pcs(yest.qty)+" · "+pct(yest.fact,yest.qty)):"—"},
     {t:"Вчера маржа факт", n:yr && yr.margin!=null ? (Number(yr.margin).toLocaleString("ru-RU",{minimumFractionDigits:1,maximumFractionDigits:1})+"%") : "—", s:yr?("прибыль "+money(yr.net)+" · выручка "+money(yr.exp_pdo)+" · РНП"):"—"},
-    {t:"Вчера маржа план", n:yp && yp.margin!=null ? (Number(yp.margin).toLocaleString("ru-RU",{minimumFractionDigits:1,maximumFractionDigits:1})+"%") : "—", s:yp?("прибыль "+money(yp.op_buy)+" · выручка "+money(yp.pdo_buy)+" после выкупа"):"—"}
+    {t:"Вчера маржа план", n:yp && yp.margin!=null ? (Number(yp.margin).toLocaleString("ru-RU",{minimumFractionDigits:1,maximumFractionDigits:1})+"%") : "—", s:yp?("прибыль "+money(yp.op)+" · выручка "+money(yp.pdo_buy)):"—"}
   ].map(x=>`<div class="kpi"><div class="t">${x.t}</div><div class="n">${x.n}</div><div class="s">${x.s}</div></div>`).join("");
 
   const mtd = skus.map(s=>({s, ...skuMtd(s)})).filter(x=>x.plan>=1 || x.fact>=1);
