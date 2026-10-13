@@ -54,7 +54,7 @@ details.row{background:var(--bg);padding:8px 10px;margin:4px 0}
 </head>
 <body>
 <div class="wrap">
-  <div class="kicker">Wildberries · заказы в BYN · выкуп, не выручка · сборка 12.10 19:12</div>
+  <div class="kicker">Wildberries · заказы в BYN · выкуп, не выручка · сборка 13.10 11:40</div>
   <h1>План продаж на октябрь</h1>
   <p class="note" id="meta"></p>
   <div class="kpis" id="kpis"></div>
@@ -181,7 +181,7 @@ function skuMtd(s){
   const remain = Math.max(0, DAYS - idx.length);
   const need = remain ? left / remain : 0;
   const avg = idx.length ? fact / idx.length : null;
-  return {plan, fact, buy, rev:factRev, planMoney, factMoney, pu, pdo, m, planRev, planOp, factOp, left, remain, need, avg};
+  return {plan, fact, buy, rev:factRev, factRev, planMoney, factMoney, pu, pdo, m, planRev, planOp, factOp, left, remain, need, avg};
 }
 
 function catOf(s, x){
